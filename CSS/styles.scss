@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  padding: 1.25rem 0;
+  & h1 {
+    margin: 0 0 10px 0;
+  }
+  & select {
+    font-size: 1rem;
+  }
+}
+
+.slideShow {
+  flex: 1;
+  background: #333;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+  transition: all 0.9s ease-out;
+  transform: scale(1);
+  &:nth-last-child(2) {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
