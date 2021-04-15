@@ -88,9 +88,8 @@ body {
   opacity: 0;
   transition: all 0.9s ease-out;
   transform: scale(1);
-
   &:nth-last-child(2) {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.12);
   }
 }
