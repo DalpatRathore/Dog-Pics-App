@@ -10,11 +10,23 @@
 let timer;
 let deleteFirstPhotoDelay;
 
+async function onLoadSlideShow() {
+  try {
+    const response = await fetch("https://dog.ceo/api/breeds/image/random/50");
+    const data = await response.json();
+    createSlideShow(data.message, (breed = "Random Images"));
+    // console.log("data :>> ", data);
+  } catch (e) {
+    console.log(" Error Message :>> ", "Something Went Wrong");
+  }
+}
+onLoadSlideShow();
+
 async function start() {
   try {
     const response = await fetch("https://dog.ceo/api/breeds/list/all");
     const data = await response.json();
-    //   console.log("data :>> ", data);
+    // console.log("data :>> ", data);
     createBreedList(data.message);
   } catch (e) {
     console.log(" Error Message :>> ", "Something Went Wrong");
@@ -38,17 +50,22 @@ function createBreedList(breedList) {
 }
 
 async function loadByBreed(breed) {
+  // console.log("breed :>> ", breed);
   if (breed != "Choose a dog breed") {
     // console.log("breed :>> ", breed);
     const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
     const data = await response.json();
-    createSlideShow(data.message);
+    createSlideShow(data.message, breed);
 
     // console.log("data :>> ", data);
+  } else {
+    onLoadSlideShow();
   }
 }
 
-function createSlideShow(images) {
+function createSlideShow(images, breedName) {
+  // console.log("breedName :>> ", breedName);
+
   let currentPosition = 0;
   clearInterval(timer);
   clearTimeout(deleteFirstPhotoDelay);
@@ -56,6 +73,7 @@ function createSlideShow(images) {
     document.querySelector("#slideShow").innerHTML = `
     <div class="slide" style="background-image: url(${images[0]});"></div>
     <div class="slide" style="background-image: url(${images[1]});"></div>
+    <span id="breedName">${breedName}</span>
     `;
     currentPosition += 2;
     if (images.length == 2) currentPosition = 0;
