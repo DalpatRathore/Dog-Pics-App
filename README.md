@@ -8,15 +8,13 @@ This web application showcases random images of different types of dog breeds.
 <table>
 <tr>
    <td>Original
-   </td> <td><img src="https://github.com/DalpatRathore/dog-pics-app
-/blob/main/images/screenshot-1.jpg" alt="dog"/></td>
+   </td> <td><img src="https://github.com/DalpatRathore/dog-pics-app/blob/main/images/screenshot-1.jpg" alt="dog"/></td>
  
 </tr>
 
 <tr>
     <td>My Bit
    </td>
-  <td><img src="https://github.com/DalpatRathore/dog-pics-app
-/blob/main/images/screenshot-2.jpg" alt="dog"/></td>
+  <td><img src="https://github.com/DalpatRathore/dog-pics-app/blob/main/images/screenshot-2.jpg" alt="dog"/></td>
 </tr>
 </table>
